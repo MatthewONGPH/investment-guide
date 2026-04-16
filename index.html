@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why You Should Start Investing Now</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --red-soft: #E8594A;
+    --green: #27735A;
+    --green-light: #3DAA82;
+    --cream: #FDF8F0;
+    --ink: #1A1208;
+    --paper: #F5EFE0;
+    --border: #EDE5D0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  /* ── TOP GREETING ── */
+  .greeting {
+    background: #C0392B;
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .greeting::before {
+    content: '$';
+    position: absolute;
+    font-size: 240px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    top: -50px; right: -20px;
+    line-height: 1;
+  }
+  .greeting .hi {
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .greeting h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 6vw, 38px);
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .greeting h1 em {
+    font-style: normal;
+    color: #FFD580;
+  }
+  .greeting p {
+    font-size: 16px;
+    opacity: 0.85;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTION BLOCKS ── */
+  .block {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    border: 2px solid var(--border);
+  }
+
+  .block-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .block-icon { font-size: 40px; flex-shrink: 0; }
+  .block-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 26px);
+    font-weight: 900;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .body-text {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: #3D3020;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight {
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 16px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .highlight .hi-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .highlight .hi-text { font-size: clamp(15px, 2.5vw, 17px); line-height: 1.8; }
+  .highlight.yellow { background: #FFF8E1; border: 1.5px solid #FFD54F; }
+  .highlight.yellow .hi-text { color: #6D4C00; }
+  .highlight.green  { background: #E8F5E9; border: 1.5px solid #81C784; }
+  .highlight.green  .hi-text { color: #1B5E20; }
+  .highlight.red    { background: #FFF3F3; border: 1.5px solid #EF9A9A; }
+  .highlight.red    .hi-text { color: #7B1A1A; }
+
+  /* ── ANALOGY CARD ── */
+  .analogy {
+    background: #FFF8E1;
+    border: 2px dashed #FFD54F;
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 16px 0;
+  }
+  .analogy .ana-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #A07800;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .analogy p {
+    font-size: clamp(15px, 2.5vw, 17px);
+    color: #5A3C00;
+    line-height: 1.8;
+  }
+
+  /* ── GROCERY COMPARE ── */
+  .rice-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .rice-box {
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .rice-box.now  { background: #E8F5E9; border: 2px solid #81C784; }
+  .rice-box.then { background: #FFF3F3; border: 2px solid #EF9A9A; }
+  .rice-box .year { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #888; margin-bottom: 6px; text-transform: uppercase; }
+  .rice-box .bags { font-size: 48px; line-height: 1; margin-bottom: 8px; }
+  .rice-box .money { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+  .rice-box.now  .money { color: #2E7D32; }
+  .rice-box.then .money { color: #C62828; }
+  .rice-box .desc { font-size: 14px; color: #555; line-height: 1.5; }
+
+  /* ── RISK TIMELINE ── */
+  .risk-timeline { margin: 20px 0; }
+  .risk-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .risk-year {
+    width: 60px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .risk-track {
+    flex: 1;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+  }
+  .risk-win  { background: #43A047; display:flex; align-items:center; justify-content:center; font-size:13px; color:#fff; font-weight:700; }
+  .risk-lose { background: #E53935; display:flex; align-items:center; justify-content:center; font-size:13px; color:#fff; font-weight:700; }
+
+  /* ── 3 RULES ── */
+  .rules { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+  .rule {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 20px;
+    border: 1.5px solid var(--border);
+  }
+  .rule-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 40px;
+    text-align: center;
+    padding-top: 2px;
+  }
+  .rule-emoji { font-size: 30px; margin-bottom: 4px; display:block; }
+  .rule-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(17px, 3vw, 21px);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .rule-sub { font-size: clamp(14px, 2.5vw, 16px); color: #666; line-height: 1.7; }
+
+  /* ── GROWTH BARS ── */
+  .growth-visual { margin: 20px 0; }
+  .growth-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .growth-year {
+    width: 56px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #888;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .growth-track {
+    flex: 1;
+    height: 44px;
+    background: #F0EDE6;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .growth-principal {
+    height: 100%;
+    background: #B0C4DE;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .growth-returns {
+    height: 100%;
+    background: #43A047;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .growth-total {
+    width: 92px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1A5C30;
+    flex-shrink: 0;
+  }
+
+  /* ── PROMISE ── */
+  .promise {
+    background: #1A1208;
+    border-radius: 20px;
+    padding: 36px 28px;
+    color: #fff;
+    text-align: center;
+  }
+  .promise h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 30px);
+    font-weight: 900;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+  }
+  .promise p {
+    font-size: clamp(15px, 2.5vw, 17px);
+    color: rgba(255,255,255,0.8);
+    line-height: 1.9;
+    max-width: 480px;
+    margin: 0 auto 24px;
+  }
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 380px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: clamp(15px, 2.5vw, 17px);
+    color: rgba(255,255,255,0.9);
+  }
+  .check-circle {
+    width: 26px; height: 26px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex-shrink: 0;
+  }
+
+  .divider {
+    text-align: center;
+    color: var(--gold);
+    font-size: 22px;
+    letter-spacing: 8px;
+    margin: 8px 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    .rice-compare { grid-template-columns: 1fr; }
+    .block { padding: 24px 18px; }
+    .promise { padding: 28px 18px; }
+    .greeting { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- GREETING -->
+  <div class="greeting">
+    <div class="hi">💼 A Guide for Working Adults</div>
+    <h1>Stop Letting Your Money <em>Stand Still</em></h1>
+    <p>A simple, visual guide to why starting a long-term investment plan today is one of the best financial decisions you can make — explained in plain everyday language</p>
+  </div>
+
+  <!-- BLOCK 1 -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-icon">🏦</div>
+      <h2>Why Isn't Keeping Money in the Bank Enough?</h2>
+    </div>
+
+    <p class="body-text">Bank savings are very safe — but the interest is only about <strong>0.05%</strong> per year. The problem is, prices rise by about <strong>2.5–3%</strong> every year.</p>
+
+    <div class="analogy">
+      <div class="ana-label">📖 A Simple Everyday Example</div>
+      <p>Imagine <strong>$10</strong> buys one bag of groceries today.<br>
+      In 8 years, that same bag might cost <strong>$13</strong>.<br>
+      But your $10 in the bank? It only grows to <strong>$10.04</strong>.<br><br>
+      👉 <strong>The number barely moved — but you can no longer afford the same groceries.</strong></p>
+    </div>
+
+    <div class="rice-compare">
+      <div class="rice-box now">
+        <div class="year">Today</div>
+        <div class="bags">🛒🛒🛒🛒🛒</div>
+        <div class="money">$100,000</div>
+        <div class="desc">Can buy<br><strong>5 trolleys</strong> of groceries</div>
+      </div>
+      <div class="rice-box then">
+        <div class="year">8 Years Later (in bank)</div>
+        <div class="bags">🛒🛒🛒</div>
+        <div class="money">$100,400</div>
+        <div class="desc">Almost no growth — now only buys<br><strong>3 trolleys</strong><br><small>Because each trolley now costs $32+</small></div>
+      </div>
+    </div>
+
+    <div class="highlight red">
+      <div class="hi-icon">⚠️</div>
+      <div class="hi-text"><strong>The number in the bank doesn't shrink — but what it can buy quietly does.</strong><br>This is inflation. Silent, but always happening.</div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- BLOCK 2 -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-icon">⏳</div>
+      <h2>Will You Lose Money?<br>The Longer You Stay, the Safer It Gets</h2>
+    </div>
+
+    <p class="body-text">Many people worry about losing money with investments. Markets do go up and down short-term — but <strong>the longer you stay invested, the lower the chance of losing.</strong></p>
+
+    <div class="analogy">
+      <div class="ana-label">📖 Think of It Like a Fruit Tree</div>
+      <p>In the first year, a young sapling sways in the wind — it looks fragile.<br>
+      But if you don't pull it out and keep watering it, in 5–10 years<br>
+      <strong>it bears abundant fruit.</strong><br><br>
+      Investing works the same way — <strong>don't give up just because of short-term storms.</strong></p>
+    </div>
+
+    <div class="risk-timeline">
+      <div style="display:flex; justify-content:space-between; font-size:12px; color:#999; margin-bottom:10px; padding:0 4px 0 72px;">
+        <span>← Loss chance</span>
+        <span>Profit chance →</span>
+      </div>
+
+      <div class="risk-row">
+        <div class="risk-year">1 Year</div>
+        <div class="risk-track">
+          <div class="risk-lose" style="width:32%">32% loss</div>
+          <div class="risk-win"  style="width:68%">68% gain 😐</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-year">3 Years</div>
+        <div class="risk-track">
+          <div class="risk-lose" style="width:22%">22%</div>
+          <div class="risk-win"  style="width:78%">78% gain 🙂</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-year">5 Years</div>
+        <div class="risk-track">
+          <div class="risk-lose" style="width:14%">14%</div>
+          <div class="risk-win"  style="width:86%">86% gain 😊</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-year" style="color:#C0392B; font-size:15px;">10 Yrs ⭐</div>
+        <div class="risk-track" style="border:2px solid #43A047;">
+          <div class="risk-lose" style="width:6%">6%</div>
+          <div class="risk-win"  style="width:94%; font-size:15px;">94% gain 😄</div>
+        </div>
+      </div>
+      <div class="risk-row">
+        <div class="risk-year">20 Years</div>
+        <div class="risk-track">
+          <div class="risk-lose" style="width:1%"></div>
+          <div class="risk-win"  style="width:99%">99% gain 🎉</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight green">
+      <div class="hi-icon">✅</div>
+      <div class="hi-text"><strong>Stay invested for 10+ years, and historically over 94% of investors came out profitable.</strong><br>Time is the most powerful tool in investing.</div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- BLOCK 3 -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-icon">🏆</div>
+      <h2>The TDT Framework: <em style="color:var(--gold); font-style:normal;">T · D · T</em></h2>
+    </div>
+
+    <p class="body-text">Remember just three letters — <strong>TDT</strong>. Time, Diversify, Top Up. These are the three rules every successful investor follows:</p>
+
+    <div class="rules">
+      <div class="rule">
+        <div class="rule-num">T</div>
+        <div>
+          <span class="rule-emoji">⏳</span>
+          <div class="rule-title">Time — Stay the Course</div>
+          <div class="rule-sub">Hold long-term and don't sell just because markets dip.<br><strong>Like fine wine — the longer you wait, the better the result.</strong><br>Fear and greed are the investor's worst enemies — stay calm.</div>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">D</div>
+        <div>
+          <span class="rule-emoji">🧺</span>
+          <div class="rule-title">Diversify — Spread the Risk</div>
+          <div class="rule-sub">Invest across different types of assets and different countries.<br><strong>Just like buying different groceries — never put all eggs in one basket.</strong><br>If one area falls, the others still protect you.</div>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">T</div>
+        <div>
+          <span class="rule-emoji">🛒</span>
+          <div class="rule-title">Top Up — Buy on the Dip</div>
+          <div class="rule-sub">When markets drop, it's like a supermarket sale — <strong>a great time to buy more at a cheaper price!</strong><br>When others are scared and selling, we buy more — and profit when prices recover.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- BLOCK 4 -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-icon">📈</div>
+      <h2>$7,800 a Year — How Much Will It Grow in 8 Years?</h2>
+    </div>
+
+    <p class="body-text">At a steady <strong>5–6% annual return</strong>, here's what to expect:</p>
+
+    <div class="growth-visual">
+      <div style="display:flex; gap:12px; margin-bottom:10px; padding-left:60px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;">
+          <div style="width:14px;height:14px;background:#B0C4DE;border-radius:3px;"></div> Amount Saved
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;">
+          <div style="width:14px;height:14px;background:#43A047;border-radius:3px;"></div> Investment Returns
+        </div>
+      </div>
+
+      <div class="growth-row">
+        <div class="growth-year">Year 2</div>
+        <div class="growth-track">
+          <div class="growth-principal" style="width:47%">$15,600</div>
+          <div class="growth-returns" style="width:7%"></div>
+        </div>
+        <div class="growth-total">≈ $17,000</div>
+      </div>
+      <div class="growth-row">
+        <div class="growth-year">Year 4</div>
+        <div class="growth-track">
+          <div class="growth-principal" style="width:47%">$31,200</div>
+          <div class="growth-returns" style="width:9%"></div>
+        </div>
+        <div class="growth-total">≈ $35,300</div>
+      </div>
+      <div class="growth-row">
+        <div class="growth-year">Year 6</div>
+        <div class="growth-track">
+          <div class="growth-principal" style="width:47%">$46,800</div>
+          <div class="growth-returns" style="width:14%"></div>
+        </div>
+        <div class="growth-total">≈ $57,700</div>
+      </div>
+      <div class="growth-row" style="background:#F0FFF4; border-radius:10px; padding:6px; margin:-6px;">
+        <div class="growth-year" style="color:#1B5E20; font-size:15px;">Year 8<br>🎯</div>
+        <div class="growth-track" style="border:2px solid #43A047;">
+          <div class="growth-principal" style="width:47%">$62,400</div>
+          <div class="growth-returns" style="width:18%; font-size:12px;">+$18k</div>
+        </div>
+        <div class="growth-total" style="color:#1B5E20; font-size:17px; font-weight:900;">≈ $81,800</div>
+      </div>
+    </div>
+
+    <div class="highlight green">
+      <div class="hi-icon">💰</div>
+      <div class="hi-text">
+        <strong>Save $62,400 total — projected to grow to $78,200–$81,800.</strong><br>
+        The extra <strong>$15,800–$19,400</strong> is money that worked for you — <strong>no extra effort needed.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- CLOSING -->
+  <div class="promise">
+    <h2>This Is How We Do It Right 💡</h2>
+    <p>
+      This isn't a one-off decision — it's a structured, ongoing plan. We stay disciplined, review regularly, and adjust when needed to keep everything on track.<br><br>
+      <strong style="color:var(--gold-light);">We are not gambling. We are building a stable financial foundation, one careful step at a time.</strong>
+    </p>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-circle">✓</div>
+        <span>Regular reviews — always know where you stand</span>
+      </div>
+      <div class="check-item">
+        <div class="check-circle">✓</div>
+        <span>Diversified — no reckless risk-taking</span>
+      </div>
+      <div class="check-item">
+        <div class="check-circle">✓</div>
+        <span>Emergency funds kept separate and untouched</span>
+      </div>
+      <div class="check-item">
+        <div class="check-circle">✓</div>
+        <span>Flexible — adjust the plan as life changes</span>
+      </div>
+    </div>
+
+    <div style="margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:15px; color:rgba(255,255,255,0.5);">
+      The goal: grow your wealth safely and consistently — and never miss the chance to build a stronger financial future ❤️
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
